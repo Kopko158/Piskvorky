@@ -64,8 +64,27 @@ public class Pole implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        for (int i = 0; i < 9; i++) {
+            if (e.getSource() == this.tlacitok[i]) {
+                if (this.hrac1Pohyb) {
+                    if (this.tlacitok[i].getText().equals("")) {
+                        this.tlacitok[i].setForeground(new Color(255, 0, 0));
+                        this.tlacitok[i].setText("X");
+                        this.hrac1Pohyb = false;
+                        this.textfield.setText("O tah");
+                    }
+                } else {
+                    if (this.tlacitok[i].getText().equals("")) {
+                        this.tlacitok[i].setForeground(new Color(0, 0, 255));
+                        this.tlacitok[i].setText("O");
+                        this.hrac1Pohyb = true;
+                        this.textfield.setText("X tah");
+                    }
+                }
+            }
+        }
     }
+
 
     public void prvyTah() {
         if (this.random.nextInt(2) == 0) {
