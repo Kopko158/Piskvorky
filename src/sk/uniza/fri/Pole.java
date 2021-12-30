@@ -72,6 +72,7 @@ public class Pole implements ActionListener {
                         this.tlacitok[i].setText("X");
                         this.hrac1Pohyb = false;//
                         this.textfield.setText("O tah");
+                        this.kontrola();
                     }
                 } else {
                     if (this.tlacitok[i].getText().equals("")) {
@@ -79,6 +80,7 @@ public class Pole implements ActionListener {
                         this.tlacitok[i].setText("O");
                         this.hrac1Pohyb = true;
                         this.textfield.setText("X tah");
+                        this.kontrola();
                     }
                 }
             }
@@ -95,6 +97,159 @@ public class Pole implements ActionListener {
             this.textfield.setText("O na ťahu");
         }
 
+    }
+
+    public void kontrola() {
+        //X
+        if (
+                (this.tlacitok[0].getText().equals("X")) &&
+                (this.tlacitok[1].getText().equals("X")) &&
+                        (this.tlacitok[2].getText().equals("X"))
+        ) {
+            this.vyhraX(0, 1, 2);
+        }
+
+        if (
+                (this.tlacitok[3].getText().equals("X")) &&
+                        (this.tlacitok[4].getText().equals("X")) &&
+                        (this.tlacitok[5].getText().equals("X"))
+        ) {
+            this.vyhraX(3, 4, 5);
+        }
+
+        if (
+                (this.tlacitok[6].getText().equals("X")) &&
+                        (this.tlacitok[7].getText().equals("X")) &&
+                        (this.tlacitok[8].getText().equals("X"))
+        ) {
+            this.vyhraX(6, 7, 8);
+        }
+
+        if (
+                (this.tlacitok[0].getText().equals("X")) &&
+                        (this.tlacitok[3].getText().equals("X")) &&
+                        (this.tlacitok[6].getText().equals("X"))
+        ) {
+            this.vyhraX(0, 3, 6);
+        }
+
+        if (
+                (this.tlacitok[1].getText().equals("X")) &&
+                        (this.tlacitok[4].getText().equals("X")) &&
+                        (this.tlacitok[7].getText().equals("X"))
+        ) {
+            this.vyhraX(1, 4, 7);
+        }
+
+        if (
+                (this.tlacitok[2].getText().equals("X")) &&
+                        (this.tlacitok[5].getText().equals("X")) &&
+                        (this.tlacitok[8].getText().equals("X"))
+        ) {
+            this.vyhraX(2, 5, 8);
+        }
+
+        if (
+                (this.tlacitok[0].getText().equals("X")) &&
+                        (this.tlacitok[4].getText().equals("X")) &&
+                        (this.tlacitok[8].getText().equals("X"))
+        ) {
+            this.vyhraX(0, 4, 8);
+        }
+
+        if (
+                (this.tlacitok[2].getText().equals("X")) &&
+                        (this.tlacitok[4].getText().equals("X")) &&
+                        (this.tlacitok[6].getText().equals("X"))
+        ) {
+            this.vyhraX(2, 4, 6);
+        }
+
+        //O
+        if (
+                (this.tlacitok[0].getText().equals("O")) &&
+                        (this.tlacitok[1].getText().equals("O")) &&
+                        (this.tlacitok[2].getText().equals("O"))
+        ) {
+            this.vyhraO(0, 1, 2);
+        }
+
+        if (
+                (this.tlacitok[3].getText().equals("O")) &&
+                        (this.tlacitok[4].getText().equals("O")) &&
+                        (this.tlacitok[5].getText().equals("O"))
+        ) {
+            this.vyhraO(3, 4, 5);
+        }
+
+        if (
+                (this.tlacitok[6].getText().equals("O")) &&
+                        (this.tlacitok[7].getText().equals("O")) &&
+                        (this.tlacitok[8].getText().equals("O"))
+        ) {
+            this.vyhraO(6, 7, 8);
+        }
+
+        if (
+                (this.tlacitok[0].getText().equals("O")) &&
+                        (this.tlacitok[3].getText().equals("O")) &&
+                        (this.tlacitok[6].getText().equals("O"))
+        ) {
+            this.vyhraO(0, 3, 6);
+        }
+
+        if (
+                (this.tlacitok[1].getText().equals("O")) &&
+                        (this.tlacitok[4].getText().equals("O")) &&
+                        (this.tlacitok[7].getText().equals("O"))
+        ) {
+            this.vyhraO(1, 4, 7);
+        }
+
+        if (
+                (this.tlacitok[2].getText().equals("O")) &&
+                        (this.tlacitok[5].getText().equals("O")) &&
+                        (this.tlacitok[8].getText().equals("O"))
+        ) {
+            this.vyhraO(2, 5, 8);
+        }
+
+        if (
+                (this.tlacitok[0].getText().equals("O")) &&
+                        (this.tlacitok[4].getText().equals("O")) &&
+                        (this.tlacitok[8].getText().equals("O"))
+        ) {
+            this.vyhraO(0, 4, 8);
+        }
+
+        if (
+                (this.tlacitok[2].getText().equals("O")) &&
+                        (this.tlacitok[4].getText().equals("O")) &&
+                        (this.tlacitok[6].getText().equals("O"))
+        ) {
+            this.vyhraO(2, 4, 6);
+        }
+
+    }
+
+    public void vyhraX(int a, int b, int c) {
+        this.tlacitok[a].setBackground(Color.green);
+        this.tlacitok[b].setBackground(Color.green);
+        this.tlacitok[c].setBackground(Color.green);
+        for (int i = 0; i < 9; i++) {
+            this.tlacitok[i].setEnabled(false);
+        }
+        this.textfield.setText("X vyhralo");
+    }
+
+    public void vyhraO(int a, int b, int c) {
+        this.tlacitok[a].setBackground(Color.red);
+        this.tlacitok[b].setBackground(Color.red);
+        this.tlacitok[c].setBackground(Color.red);
+        for (int i = 0; i < 9; i++) {
+            this.tlacitok[i].setEnabled(false);
+        }
+        this.textfield.setText("O vyhralo");
     }
 
 
