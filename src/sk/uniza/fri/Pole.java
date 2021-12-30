@@ -79,7 +79,7 @@ public class Pole implements ActionListener {
                         this.tlacitok[i].setForeground(new Color(0, 0, 255));
                         this.tlacitok[i].setText("O");
                         this.hrac1Pohyb = true;
-                        this.textfield.setText("X tah");
+                        this.textfield.setText("X tah");//
                         this.kontrola();
                     }
                 }
